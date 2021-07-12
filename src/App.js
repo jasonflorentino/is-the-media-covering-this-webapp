@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { Heading, VStack, IconButton, useColorMode } from "@chakra-ui/react";
+import { FaSun, FaMoon } from "react-icons/fa";
 
-function App() {
+import ArticlesGrid from "./components/ArticlesGrid";
+import SearchForm from "./components/SearchForm";
+import API from "./lib/API";
+
+const App = () => {
+  const { colorMode, toggleColorMode } = useColorMode();
+
+  const { data, requestData, loading, error, errorMessage } =
+    API.useFetchNewArticles();
+
+  const handleNewSearch = () => {
+    requestData();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <VStack p={4}>
+      <IconButton
+        icon={colorMode === "light" ? <FaSun /> : <FaMoon />}
+        isRound="true"
+        size="lg"
+        alignSelf="flex-end"
+        onClick={toggleColorMode}
+      />
+      <Heading
+        mb="8"
+        p={1}
+        fontWeight="extrabold"
+        size="3xl"
+        bgGradient="linear(to-r, pink.500, pink.300, blue.500)"
+        bgClip="text"
+      >
+        Is the media covering this?
+      </Heading>
+      <SearchForm handleNewSearch={handleNewSearch} />
+      <ArticlesGrid
+        data={data}
+        loading={loading}
+        error={error}
+        errorMessage={errorMessage}
+      />
+    </VStack>
   );
-}
+};
 
 export default App;
