@@ -13,6 +13,7 @@ import {
 import ExternalLinkButton from "./ExternalLinkButton";
 import { getRelativeDate } from "../lib/dateutils";
 import "./ArticleCard.scss";
+import fallBack from "../assets/images/fallback.png";
 
 // Helper functions
 const getDateColorTheme = (dateString) => {
@@ -44,8 +45,8 @@ const ArticleCard = ({ img, title, author, source, date, link, order }) => {
   return (
     <SlideFade in={isOpen} offsetY="20px">
       <Box {...CLASSES.articleCard} className="ArticleCard">
-        <Flex direction={{sm: "column", md: "row"}}>
-          <Image {...CLASSES.imageBox} src={img} alt={title} />
+        <Flex direction={{sm: "column", md: "row", lg: "row"}}>
+          <Image {...CLASSES.imageBox} src={img} alt={title} fallbackSrc={fallBack} />
           <Flex p="6" direction="column" justifyContent="center" w="100%">
             <Box {...CLASSES.titleBox}>
               {title}
