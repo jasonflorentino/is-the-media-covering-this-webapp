@@ -5,12 +5,27 @@ const API = {
   useFetchNewArticles
 }
 
+/**
+ * @name useFetchNewArticles
+ * @description Provides a function for fetching news article data from the API
+ * and variables to store the data, read loading and error states, and read
+ * an error message.
+ * @returns {object {data: {}, requestData: ()=>void, loading: bool, error: bool: errorMessage: string}
+ */
 function useFetchNewArticles() {
+  // React state variables
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
+  
+  /**
+   * @name requestData
+   * @description Handles API request using the provided string
+   * as well as sets loading and error states when necessary.
+   * @param {string} query String representing the search query
+   * @returns Promise
+   */
   const requestData = async (query) => {
     setLoading(true);
     setError(false);
@@ -28,7 +43,7 @@ function useFetchNewArticles() {
         }
       }
       res = await axios.request(config);
-      setData(res.data);
+      setData(res?.data);
       setLoading(false);
     } catch (e) {
       setErrorMessage(e.response?.data?.message);
@@ -36,7 +51,6 @@ function useFetchNewArticles() {
       setError(true);
     }
   }
-
 
   return {data, requestData, loading, error, errorMessage};
 }

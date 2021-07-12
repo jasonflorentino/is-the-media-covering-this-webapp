@@ -1,4 +1,4 @@
-import { Heading, VStack, IconButton, useColorMode } from "@chakra-ui/react";
+import { Heading, VStack, IconButton, useColorMode, Box } from "@chakra-ui/react";
 import { FaSun, FaMoon } from "react-icons/fa";
 
 import ArticlesGrid from "./components/ArticlesGrid";
@@ -9,8 +9,13 @@ import API from "./lib/API";
 const App = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const { data, requestData, loading, error, errorMessage } =
-    API.useFetchNewArticles();
+  const { 
+    data,
+    requestData, 
+    loading, 
+    error, 
+    errorMessage 
+  } = API.useFetchNewArticles();
 
   return (
     <VStack p={4}>
@@ -33,6 +38,9 @@ const App = () => {
         Is the media covering this?
       </Heading>
       <SearchForm requestData={requestData} />
+      <Box>
+        {data.total_articles}
+      </Box>
       <ArticlesGrid
         data={data}
         loading={loading}
