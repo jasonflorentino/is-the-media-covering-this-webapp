@@ -16,10 +16,11 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     attachScroll();
+    // eslint-disable-next-line
   }, []);
 
   return (
-    <Box position="fixed" bottom="55px" right="45px">
+    <Box position="fixed" bottom="55px" right="45px" zIndex="100">
       <SlideFade offsetY="20px" in={scrolled}>
         <Button
           rightIcon={<FaArrowUp />}

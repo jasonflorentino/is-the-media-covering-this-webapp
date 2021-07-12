@@ -26,7 +26,11 @@ const ArticlesGrid = ({ data, loading, error, errorMessage }) => {
     })
 
   return cards ? (
-    <SimpleGrid columns={[1, null, 2, null, 3]} spacing={10}>
+    <SimpleGrid 
+      columns={[1]} 
+      spacing={8} 
+      maxW={{sm: "100%", md: "90%", lg: "1100px"}}
+    >
       {cards}
     </SimpleGrid>
   ) : (
