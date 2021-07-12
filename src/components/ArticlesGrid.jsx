@@ -1,6 +1,6 @@
 import { SimpleGrid } from "@chakra-ui/react";
 
-import ArticleCard from './ArticleCard';
+import ArticleCard from './ArticleCard/ArticleCard';
 import Loading from "./Loading";
 import Error from "./Error";
 import Empty from "./Empty";

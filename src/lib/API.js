@@ -13,6 +13,7 @@ function useFetchNewArticles() {
 
   const requestData = async (query) => {
     setLoading(true);
+    setError(false);
     let res = null;
 
     try {

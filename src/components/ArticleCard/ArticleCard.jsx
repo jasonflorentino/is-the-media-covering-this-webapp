@@ -10,10 +10,10 @@ import {
 } from "@chakra-ui/react";
 
 // Local imports
-import ExternalLinkButton from "./ExternalLinkButton";
-import { getRelativeDate } from "../lib/dateutils";
+import ExternalLinkButton from "../ExternalLinkButton";
+import { getRelativeDate } from "../../lib/dateutils";
 import "./ArticleCard.scss";
-import fallBack from "../assets/images/fallback.png";
+import fallBack from "../../assets/images/fallback.png";
 
 // Helper functions
 const getDateColorTheme = (dateString) => {
