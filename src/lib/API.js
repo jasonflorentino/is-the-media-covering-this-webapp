@@ -10,7 +10,7 @@ const API = {
  * @description Provides a function for fetching news article data from the API
  * and variables to store the data, read loading and error states, and read
  * an error message.
- * @returns {object {data: {}, requestData: ()=>void, loading: bool, error: bool: errorMessage: string}
+ * @returns {object {data: {}, requestData: Promise, loading: bool, error: bool: errorMessage: string}
  */
 function useFetchNewArticles() {
   // React state variables
