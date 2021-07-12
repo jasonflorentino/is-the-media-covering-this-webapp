@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { Box, Image, Badge, Button, SlideFade, useDisclosure } from '@chakra-ui/react'
+import { Box, Image, Badge, Button, SlideFade, useDisclosure, Link } from '@chakra-ui/react'
 import { FaExternalLinkAlt } from "react-icons/fa"
 
 import { getRelativeDate } from "../lib/dateutils";
@@ -13,7 +13,7 @@ const stripWww = (sourceUrl) => {
   return sourceUrl.replace(/^www\./, "")
 }
 
-const ArticleCard = ({ img, title, author, source, date, order }) => {
+const ArticleCard = ({ img, title, author, source, date, link, order }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   const dateString = getRelativeDate(date);
@@ -62,9 +62,11 @@ const ArticleCard = ({ img, title, author, source, date, order }) => {
         </Box>
 
         <Box mt={3}>
-          <Button colorScheme={colorTheme} variant="solid" rightIcon={<FaExternalLinkAlt />}>
-            {sourceText}
-          </Button>
+          <Link _hover="" href={link} target="_blank" rel="noreferrer">
+            <Button colorScheme={colorTheme} variant="solid" rightIcon={<FaExternalLinkAlt />}>
+              {sourceText}
+            </Button>
+          </Link>
         </Box>
 
       </Box>

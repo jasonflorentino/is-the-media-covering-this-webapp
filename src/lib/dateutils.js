@@ -8,6 +8,7 @@ const mon = day * 30;
 const year= day * 365;
 
 export function getRelativeDate(dateString) {
+  if (!dateString) return "Unknown publish date"
   const now = Date.now();
   const then = new Date(dateString).valueOf();
   const diff = now - then;

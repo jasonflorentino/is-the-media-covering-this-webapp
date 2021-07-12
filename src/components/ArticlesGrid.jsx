@@ -12,7 +12,7 @@ const ArticlesGrid = ({ data, loading, error, errorMessage }) => {
 
   const cards = data.articles && 
     data.articles.map((article, i) => {
-      const { media, title, author, source, published_on } = article;
+      const { media, title, author, source, published_on, link } = article;
       return <ArticleCard 
         key={i}
         order={i}
@@ -21,6 +21,7 @@ const ArticlesGrid = ({ data, loading, error, errorMessage }) => {
         author={author} 
         source={source}
         date={published_on}
+        link={link}
       />
     })
 

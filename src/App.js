@@ -3,6 +3,7 @@ import { FaSun, FaMoon } from "react-icons/fa";
 
 import ArticlesGrid from "./components/ArticlesGrid";
 import SearchForm from "./components/SearchForm";
+import ScrollToTop from "./components/ScrollToTop";
 import API from "./lib/API";
 
 const App = () => {
@@ -11,12 +12,9 @@ const App = () => {
   const { data, requestData, loading, error, errorMessage } =
     API.useFetchNewArticles();
 
-  const handleNewSearch = () => {
-    requestData();
-  };
-
   return (
     <VStack p={4}>
+      <ScrollToTop />
       <IconButton
         icon={colorMode === "light" ? <FaSun /> : <FaMoon />}
         isRound="true"
@@ -34,7 +32,7 @@ const App = () => {
       >
         Is the media covering this?
       </Heading>
-      <SearchForm handleNewSearch={handleNewSearch} />
+      <SearchForm requestData={requestData} />
       <ArticlesGrid
         data={data}
         loading={loading}
