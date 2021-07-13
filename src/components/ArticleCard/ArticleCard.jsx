@@ -51,7 +51,7 @@ const ArticleCard = ({ img, title, author, source, date, link, order }) => {
             <Box {...CLASSES.titleBox}>
               {title}
             </Box>
-            <Box mt={3} d="flex" alignItems="baseline">
+            <Box mt={3} d="flex" alignItems="baseline" flexDirection={{sm: "column", "md": "row"}}>
               <Badge {...CLASSES.badge} colorScheme={colorTheme}>
                 {dateString}
               </Badge>
@@ -62,7 +62,7 @@ const ArticleCard = ({ img, title, author, source, date, link, order }) => {
                 text={sourceText}
                 href={link}
                 colorScheme={colorTheme}
-                linkProps={{ ml: "auto" }}
+                linkProps={{ ml: { sm: "0", md: "auto" } }}
               />
             </Box>
           </Flex>

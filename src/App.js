@@ -27,7 +27,7 @@ const App = ({ location, history }) => {
   }, [location])
 
   return (
-    <VStack p={4}>
+    <VStack p={4} overflowX="hidden">
       <ScrollToTop />
       <IconButton
         icon={colorMode === "light" ? <FaSun /> : <FaMoon />}

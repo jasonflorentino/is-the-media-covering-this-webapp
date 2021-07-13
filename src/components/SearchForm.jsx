@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { HStack, Input, Button, useToast } from "@chakra-ui/react";
+import { Flex, Input, Button, useToast } from "@chakra-ui/react";
 
 const SearchForm = ({ history }) => {
   const toast = useToast();
@@ -38,7 +38,7 @@ const SearchForm = ({ history }) => {
 
   return (
     <form className="SearchForm" onSubmit={handleSubmit}>
-      <HStack w={{ base: "2xl", sm: "md", md: "xl", lg: "3xl" }} p={4}>
+      <Flex w={{ base: "2xl", sm: "sm", md: "xl", lg: "3xl" }} p={4} direction={{sm: "column", md: "row"}}>
         <Input
           isInvalid={error}
           placeholder="Amazon rainforest"
@@ -56,7 +56,7 @@ const SearchForm = ({ history }) => {
         >
           Search
         </Button>
-      </HStack>
+      </Flex>
     </form>
   );
 };
