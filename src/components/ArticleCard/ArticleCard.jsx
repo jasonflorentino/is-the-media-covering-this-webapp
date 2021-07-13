@@ -11,7 +11,7 @@ import {
 
 // Local imports
 import ExternalLinkButton from "../ExternalLinkButton";
-import { getRelativeDate } from "../../lib/dateutils";
+import { getRelativeDate } from "../../lib/date_utils";
 import "./ArticleCard.scss";
 import fallBack from "../../assets/images/fallback.png";
 

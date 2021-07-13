@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Button, SlideFade, Box } from "@chakra-ui/react";
 import { FaArrowUp } from "react-icons/fa";
 
-import { useScroll } from "../lib/scrollutils";
+import { useScroll } from "../lib/scroll_utils";
 
 const ScrollToTop = () => {
   const { scrolled, attachScroll } = useScroll(250);

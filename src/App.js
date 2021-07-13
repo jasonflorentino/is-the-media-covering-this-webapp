@@ -1,21 +1,28 @@
-import { Heading, VStack, IconButton, useColorMode, Box } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { Heading, VStack, IconButton, useColorMode } from "@chakra-ui/react";
 import { FaSun, FaMoon } from "react-icons/fa";
 
 import ArticlesGrid from "./components/ArticlesGrid";
 import SearchForm from "./components/SearchForm";
 import ScrollToTop from "./components/ScrollToTop";
+import TotalArticles from "./components/TotalArticles";
+import url from "./lib/url_utils";
 import API from "./lib/API";
 
-const App = () => {
+const App = ({ location, history }) => {
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const { 
-    data,
-    requestData, 
-    loading, 
-    error, 
-    errorMessage 
-  } = API.useFetchNewArticles();
+  const queries = url.getQueriesFromLocationSearch(location.search);
+
+  const { data, requestData, loading, error, errorMessage } =
+    API.useFetchNewArticles();
+
+  useEffect(() => {
+    if (queries.q) {
+      requestData(queries.q);
+    }
+    // eslint-disable-next-line
+  }, [location])
 
   return (
     <VStack p={4}>
@@ -37,10 +44,8 @@ const App = () => {
       >
         Is the media covering this?
       </Heading>
-      <SearchForm requestData={requestData} />
-      <Box>
-        {data.total_articles}
-      </Box>
+      <SearchForm requestData={requestData} history={history} />
+      {queries.q && <TotalArticles loading={loading} total={data.total_articles} query={queries.q} />}
       <ArticlesGrid
         data={data}
         loading={loading}

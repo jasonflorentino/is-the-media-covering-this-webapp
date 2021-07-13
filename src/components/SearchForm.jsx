@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { HStack, Input, Button, useToast } from "@chakra-ui/react";
 
-const SearchForm = ({ requestData }) => {
+const SearchForm = ({ requestData, history }) => {
   const toast = useToast();
   const makeToast = () => {
     toast({
@@ -29,7 +29,7 @@ const SearchForm = ({ requestData }) => {
       return makeToast();
     }
 
-    requestData(input);
+    history.push(`/?q=${input}`);
     setInput("");
     return;
   };
