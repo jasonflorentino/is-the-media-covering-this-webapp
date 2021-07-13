@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { HStack, Input, Button, useToast } from "@chakra-ui/react";
 
-const SearchForm = ({ requestData, history }) => {
+const SearchForm = ({ history }) => {
   const toast = useToast();
   const makeToast = () => {
     toast({
+      position: "top",
+      variant: "left-accent",
       title: "Nothing to search!",
       description: "Please enter some search terms in the text box.",
       status: "error",

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Heading, VStack, IconButton, useColorMode } from "@chakra-ui/react";
 import { FaSun, FaMoon } from "react-icons/fa";
 
@@ -6,6 +7,7 @@ import ArticlesGrid from "./components/ArticlesGrid";
 import SearchForm from "./components/SearchForm";
 import ScrollToTop from "./components/ScrollToTop";
 import TotalArticles from "./components/TotalArticles";
+import Empty from "./components/Empty";
 import url from "./lib/url_utils";
 import API from "./lib/API";
 
@@ -34,6 +36,7 @@ const App = ({ location, history }) => {
         alignSelf="flex-end"
         onClick={toggleColorMode}
       />
+      <Link to="/">
       <Heading
         mb="8"
         p={1}
@@ -44,14 +47,25 @@ const App = ({ location, history }) => {
       >
         Is the media covering this?
       </Heading>
-      <SearchForm requestData={requestData} history={history} />
-      {queries.q && <TotalArticles loading={loading} total={data.total_articles} query={queries.q} />}
-      <ArticlesGrid
-        data={data}
-        loading={loading}
-        error={error}
-        errorMessage={errorMessage}
-      />
+      </Link>
+      <SearchForm history={history} />
+      {queries.q ? (
+        <>
+          <TotalArticles 
+            loading={loading} 
+            total={data.total_articles} 
+            query={queries.q} 
+          />
+          <ArticlesGrid
+            data={data}
+            loading={loading}
+            error={error}
+            errorMessage={errorMessage}
+          />
+        </>
+      ) : (
+        <Empty />
+      )}
     </VStack>
   );
 };

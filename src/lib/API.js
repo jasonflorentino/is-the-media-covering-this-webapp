@@ -47,6 +47,7 @@ function useFetchNewArticles() {
       setLoading(false);
     } catch (e) {
       setErrorMessage(e.response?.data?.message);
+      setData({ total_articles: 0 });
       setLoading(false);
       setError(true);
     }
