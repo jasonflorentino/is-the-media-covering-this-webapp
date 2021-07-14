@@ -5,6 +5,11 @@ This started after spinning up a little API that searches for news articles for 
 
 —Jason, Jul 2021
 
+## 🔗 [Click here to view a live deployment](https://isthemediacovering.netlify.app/)
+The main branch of this repo is deployed on Netlify.  
+### Build status
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ddcd5a98-ffe4-4dd1-b257-7ebc4357c7b7/deploy-status)](https://app.netlify.com/sites/isthemediacovering/deploys)  
+
 ## TODO
 *Tracking some of the things I still want to accomplish*  
 
