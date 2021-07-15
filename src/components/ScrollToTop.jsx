@@ -20,7 +20,12 @@ const ScrollToTop = () => {
   }, []);
 
   return (
-    <Box position="fixed" bottom="55px" right="45px" zIndex="100">
+    <Box
+      position="fixed"
+      bottom={{ sm: "35px", md: "55px" }}
+      right={{ sm: "25px", md: "45px" }}
+      zIndex="100"
+    >
       <SlideFade offsetY="20px" in={scrolled}>
         <Button
           rightIcon={<FaArrowUp />}

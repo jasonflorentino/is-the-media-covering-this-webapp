@@ -6,7 +6,7 @@ import { formatNumber } from "../lib/string_utils";
 const TotalArticles = ({ loading, total, query }) => {
   return (
     <Box p={6}>
-      <Text fontSize="3xl" color="blue.400">
+      <Text fontSize="3xl" color="blue.400" lineHeight="shorter">
         {`${
           loading
             ? "Seaching for"
