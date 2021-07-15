@@ -38,7 +38,11 @@ const SearchForm = ({ history }) => {
 
   return (
     <form className="SearchForm" onSubmit={handleSubmit}>
-      <Flex w={{ base: "2xl", sm: "sm", md: "xl", lg: "3xl" }} p={4} direction={{sm: "column", md: "row"}}>
+      <Flex
+        w={{ base: "2xl", sm: "sm", md: "xl", lg: "3xl" }}
+        p={4}
+        direction={{ sm: "column", md: "row" }}
+      >
         <Input
           isInvalid={error}
           placeholder="Amazon rainforest"
@@ -46,6 +50,8 @@ const SearchForm = ({ history }) => {
           variant="filled"
           value={input}
           onChange={handleChange}
+          mb={{ sm: "2", md: "0"}}
+          borderRightRadius={{sm: "base", md: "none"}}
         />
         <Button
           leftIcon={<span>🔍</span>}
@@ -53,6 +59,7 @@ const SearchForm = ({ history }) => {
           colorScheme="pink"
           px="8"
           type="submit"
+          borderLeftRadius={{sm: "base", md: "none"}}
         >
           Search
         </Button>
