@@ -45,17 +45,17 @@ const ArticleCard = ({ img, title, author, source, date, link, order }) => {
   return (
     <SlideFade in={isOpen} offsetY="20px">
       <Box {...CLASSES.articleCard} className="ArticleCard">
-        <Flex direction={{sm: "column", md: "row", lg: "row"}}>
+        <Flex direction={{ sm: "column", md: "row" }}>
           <Image {...CLASSES.imageBox} src={img} alt={title} fallbackSrc={fallBack} />
           <Flex p="6" direction="column" justifyContent="center" w="100%">
-            <Box {...CLASSES.titleBox}>
+            <Box {...CLASSES.title}>
               {title}
             </Box>
-            <Box mt={3} d="flex" alignItems="baseline" flexDirection={{sm: "column", "md": "row"}}>
+            <Box {...CLASSES.detailsBox} >
               <Badge {...CLASSES.badge} colorScheme={colorTheme}>
                 {dateString}
               </Badge>
-              <Box ml={2} as="span" color="gray.600" fontSize="sm">
+              <Box {...CLASSES.author}>
                 {author}
               </Box>
               <ExternalLinkButton
@@ -83,18 +83,31 @@ function getClasses() {
         borderRadius: "lg",
         overflow: "hidden",
     },
+    detailsBox: {
+      mt: 3,
+      d: "flex",
+      alignItems: "baseline",
+      flexDirection: { sm: "column", "md": "row" }
+    },
+    author: {
+      as: "span",
+      ml: { sm: "0", md:"2" }, 
+      my: { sm: 2, md: 0 },
+      color: "gray.600",
+      fontSize: "sm"
+    },
     imageBox: {
       w: "30%",
       minW: { sm: "100%", md: "30%" },
       h: "100%",
-      minH: { sm: "300px", md: "160", lg: "200", xl: "200" },
-      maxH: { sm: "300px", md: "160", lg: "200"},
+      minH: { sm: "250px", md: "160", lg: "200", xl: "200" },
+      maxH: { sm: "250px", md: "160", lg: "200"},
       objectFit: "cover"
     },
-    titleBox: {
+    title: {
       fontWeight: "bold",
       as: "h4",
-      lineHeight: "shorter",
+      lineHeight: { sm: "none", md: "shorter" },
       fontSize: { sm: "2xl", lg: "3xl" },
     },
     badge: {
