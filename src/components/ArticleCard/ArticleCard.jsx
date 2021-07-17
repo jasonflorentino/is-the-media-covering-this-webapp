@@ -17,7 +17,11 @@ import fallBack from "../../assets/images/fallback.png";
 
 // Helper functions
 const getDateColorTheme = (dateString) => {
-  return dateString.includes("week") ? "blue" : "teal";
+  return dateString.includes("day") 
+    ? "green" 
+    : dateString.includes("week") 
+    ? "teal" 
+    : "blue";
 };
 
 const stripWww = (sourceUrl) => {
