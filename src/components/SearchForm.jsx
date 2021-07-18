@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Flex, Input, Button, useToast } from "@chakra-ui/react";
 
-const SearchForm = ({ history }) => {
+const SearchForm = ({ history, loading=false }) => {
   const toast = useToast();
   const makeToast = () => {
     toast({
@@ -54,6 +54,7 @@ const SearchForm = ({ history }) => {
           borderRightRadius={{sm: "base", md: "none"}}
         />
         <Button
+          isLoading={loading}
           leftIcon={<span>🔍</span>}
           size="lg"
           colorScheme="pink"

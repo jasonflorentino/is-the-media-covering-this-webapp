@@ -28,7 +28,7 @@ const App = ({ location, history }) => {
       <ScrollToTop />
       <DarkModeToggle />
       <Header />
-      <SearchForm history={history} />
+      <SearchForm history={history} loading={loading} />
       {queries.q ? (
         <Results
           loading={loading}
