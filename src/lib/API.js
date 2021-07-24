@@ -26,7 +26,7 @@ function useFetchNewArticles() {
    * @param {string} query String representing the search query
    * @returns Promise
    */
-  const requestData = async (query) => {
+  const requestData = async (query, page) => {
     setLoading(true);
     setError(false);
     let res = null;
@@ -36,7 +36,8 @@ function useFetchNewArticles() {
         method: "get",
         url: process.env.REACT_APP_API_URL,
         params: {
-          q: query
+          q: query,
+          p: page || 1
         },
         headers: {
           api_key: process.env.REACT_APP_API_KEY

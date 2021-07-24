@@ -18,7 +18,7 @@ const App = ({ location, history }) => {
 
   useEffect(() => {
     if (queries.q) {
-      requestData(queries.q);
+      requestData(queries.q, queries.p || 1);
     }
     // eslint-disable-next-line
   }, [location]);
