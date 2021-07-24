@@ -1,5 +1,6 @@
 import TotalArticles from "./TotalArticles";
 import ArticlesGrid from "./ArticlesGrid";
+import Pagination from "./Pagination";
 
 const Results = ({ loading, total, query, data, error, errorMessage }) => {
   return (
@@ -15,6 +16,7 @@ const Results = ({ loading, total, query, data, error, errorMessage }) => {
         error={error}
         errorMessage={errorMessage}
       />
+      {!loading && total > 0 && <Pagination articleCount={total} />}
     </>
   );
 };
