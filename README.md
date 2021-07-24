@@ -13,9 +13,9 @@ The main branch of this repo is deployed on Netlify.
 ## TODO
 *Tracking some of the things I still want to accomplish*  
 
-◻️  Pagination for search results  
 ◻️  Footer with link to Bot  
-◻️  Refine the responsive styling  
+✅  Refine the responsive styling  
+✅  Pagination for search results  
 ✅  Client side routing to allow direct link to a search  
 ✅  Display number of results and what the query was  
 ✅  Custom fallback image  
