@@ -5,6 +5,9 @@ This started after spinning up a little API that searches for news articles for 
 
 —Jason, Jul 2021
 
+#### 💀 Deprecation Notice
+As of **2022-11-26** the [API server](https://github.com/jasonflorentino/is-the-media-covering-this-api) that backs this app is no longer running. Searches made from the app will timeout. 
+
 ## 🔗 [Click here to view a live deployment](https://isthemediacovering.netlify.app/)
 The main branch of this repo is deployed on Netlify.  
 #### Build status  
